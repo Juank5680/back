@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("estudiante")
+@RequestMapping("participante")
 public class ParticipanteController {
 
     @Autowired
