@@ -28,7 +28,7 @@ public class CoeficienteController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JSONObject objetoJson = new JSONObject();
-            objetoJson.put("Codigo error", HttpStatus.NOT_FOUND.value());
+            objetoJson.put("Codigo de error", HttpStatus.NOT_FOUND.value());
             objetoJson.put("Descripción error", HttpStatus.NOT_FOUND);
             objetoJson.put("Mensaje", "No existen registros en la BD");
             String jsonString = objetoJson.toString();
