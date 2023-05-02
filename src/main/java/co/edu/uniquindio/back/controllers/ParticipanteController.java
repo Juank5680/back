@@ -2,6 +2,7 @@ package co.edu.uniquindio.back.controllers;
 
 import co.edu.uniquindio.back.entities.Participante;
 import co.edu.uniquindio.back.services.ParticipanteService;
+import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("participante")
+@Slf4j
 public class ParticipanteController {
 
     @Autowired
@@ -18,8 +20,10 @@ public class ParticipanteController {
 
     @PostMapping("/crear")
     public ResponseEntity<?> createParticipante(@RequestBody Participante participante){
+        log.info("Inicio crear participante");
         try {
             if(participanteService.createParticipante(participante)) {
+                log.info("Crearando participante");
                 return ResponseEntity.status(HttpStatus.CREATED).body("Participante creado correctamente");
             }
             else {

@@ -2,12 +2,14 @@ package co.edu.uniquindio.back.services;
 
 import co.edu.uniquindio.back.entities.Participante;
 import co.edu.uniquindio.back.repositories.ParticipanteRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ParticipanteService {
     @Autowired
     private ParticipanteRepo participanteRepo;
@@ -17,6 +19,7 @@ public class ParticipanteService {
             return false;
         }
         participanteRepo.save(participante);
+        log.info("Participante guardado");
         return true;
     }
 
